@@ -3,16 +3,28 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { MainManagerComponent } from './main-manager/main-manager.component';
+import { MainComponent } from './main/main.component';
+import {RouterModule} from '@angular/router';
+import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import {StreamDataService} from './stream-data.service';
+import {AccessGuard} from './access.guard';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainManagerComponent,
+    MainComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [StreamDataService, AccessGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
